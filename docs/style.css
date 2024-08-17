@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css')
+
+:root { --pretty:#658291; }
+
+
+body {
+ font-size: small;
+ font-family: Optima Candara,'Noto Sans',source-sans-pro,sans-serif;
+ font-weight: normal;
+}
+
+.wrapper {
+  margin: auto;
+  max-width: 800px;
+  padding: 10px;
+}
+
+pre { background-color: #F5F5F5; }
+
+h2,h3,h4 { font-family: Cinzel; }
+
+h1::first-letter{ color:#ff8A00; }
+
+h1 { color: var(--pretty); padding-top:0px;
+     margin-top:0px; font-size: 90px; font-family: "Delicious Handrawn", cursive;}
+
+h2 { border-top: solid 1px var(--pretty); }
+
+
+  table {
+            border-collapse: collapse; /* Ensures there are no gaps between cells */
+        }
+
+        /* Table header styling */
+        th {
+            background-color: var(--pretty);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* Table row styling */
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Adds a background color to even rows */
+        }
+
+        tr:hover {
+            background-color: #ddd; /* Adds a hover effect to rows */
+        }
+
+        /* Table cell styling */
+        td {
+            padding: 12px;
+            border: 1px solid #ddd; /* Adds borders to the cells */
+        }
+
+        /* Optional: Add some space between the table and other content */
+        table {
+            margin-top: 20px;
+        }
