@@ -48,7 +48,10 @@ push: ## save local changes to cloud
 	git push --quiet -u --no-progress
 	git status --short   
 
-%.html: %.md  ## md -> html
+style.css: $(Etc)/style.css
+	cp $^ $@
+
+%.html: %.md  style.css ## md -> html
 	echo "$@ ... "
 	pandoc $^ -o $@ $(Pandoc)
 
