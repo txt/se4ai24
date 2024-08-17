@@ -6,7 +6,7 @@ define Fish
   //\___=
      ''
 endef
-export Fish
+export Fish # hummm
 
 Pandoc =     \
 	-s          \
@@ -34,7 +34,7 @@ SHELL = bash
 
 help: ## show help
 	printf '\nmake [$(Yellow)what$(White)]\n'
-	grep -E '^[^ \t#].*## .*$$' $(MAKEFILE_LIST) \
+	grep -hE '^[^ \t#].*## .*$$' $(MAKEFILE_LIST) \
 	| grep -v grep \
   | sort \
   | awk 'BEGIN {FS=":.*?## "};{printf "$(Cyan)%10s$(White) : %s\n",$$1,$$2}'
