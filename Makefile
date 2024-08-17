@@ -12,7 +12,7 @@ Pandoc =     \
 	-s          \
 	-f markdown  \
   --mathjax     \
-	-c style.css   \
+	--css style.css   \
   --highlight-style kate       \
 	-H $(Etc)/favicon.html \
 	--include-before=$(Etc)/head.md \
@@ -53,5 +53,5 @@ style.css: $(Etc)/style.css
 
 %.html: %.md  style.css ## md -> html
 	echo "$@ ... "
-	pandoc $^ -o $@ $(Pandoc)
+	pandoc $< -o $@ $(Pandoc)
 
