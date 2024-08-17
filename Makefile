@@ -12,7 +12,7 @@ Pandoc =     \
 	-s          \
 	-f markdown  \
   --mathjax     \
-	--css=$(Etc)/style.css   \
+	-c style.css   \
   --highlight-style kate       \
 	-H $(Etc)/favicon.html \
 	--include-before=$(Etc)/head.md \
