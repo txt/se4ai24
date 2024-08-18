@@ -1,7 +1,33 @@
-% Hello! Why are you here?
+% Home Page, ASE'24
 
+<br clear=all>
 
-## You want to get better at brain surgery
+[xxx](asdas) :: [xxx](asdas)
+
+## What will we study?
+
+1. Current hot topics in [automated SE](https://link.springer.com/journal/10515/articles).
+2. Ways to improve AI engineering with something called "active learning" (to be defined, very soon)
+
+A standard project in this subject would test itself on data from dozens of SE projects.
+
+- [MOOT (multi-objective optimization testing)](https://github.com/timm/moot/tree/master/optimize)
+    is a repository with
+  - some 60 SE problems 
+    - and a few others  like wine tasting and car design
+  - decision making in SE projects
+    - reduce costs
+    - reduce number of Defects
+    - increase the number of successfully previously implemented features
+  - configuration in SE systems
+    - find the software configuration settings that most reduce (e.g. runtimes, query times, usage, etc).
+  - hyper-parameter optimization
+    - find better settings for random forest classifiers (aside: our methods could
+         apply to the tuning of any learners).
+
+## Why you are here
+
+You want to get better at brain surgery.
 
 Let me say that another way.
 
@@ -20,27 +46,6 @@ Also, maybe you want to teach others about how to be an AI brain surgeons.
 - But can we do it again?
 
 <img width="800px" src=img/papers.png>
-
-## What will we study?
-
-1. Current hot topics in [automated SE](https://link.springer.com/journal/10515/articles).
-2. Ways to improve AI engineering with something called "active learning" (to be defined, later)
-
-A standard project in this subject would test itself on data from dozens of SE projects.
-
-- [MOOT (multi-objective optimization testing)](https://github.com/timm/moot/tree/master/optimize)
-    is a repository with
-  - some 60 SE problems 
-    - and a few others  like wine tasting and car design
-  - decision making in SE projects
-    - reduce costs
-    - reduce number of Defects
-    - increase the number of successfully previously implemented features
-  - configuration in SE systems
-    - find the software configuration settings that most reduce (e.g. runtimes, query times, usage, etc).
-  - hyper-parameter optimization
-    - find better settings for random forest classifiers (aside: our methods could
-         apply to the tuning of any learners).
 
 ## Why do this class?
 
