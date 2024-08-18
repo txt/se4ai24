@@ -72,9 +72,9 @@ This  policy is absolute and total (i.e. there no, zero, zip, nada, none, appeal
 |----------------|------------|--------|------------|---------------|-------------|
 |homeworks (five)|group       | 5 \* 0 |            | yes           | replaced if you resubmit in a week<br> or replaced if you do final exam |
 |mid-term        |solo        | 25     | mid-term   | yes           | replaced if you do final exam |
-|lit review      |group       | 25     | end-Sept   | yes           | optionally, replaced in the final reports |
-|project report1 |group       | 25     | end-Oct. submit to get feedback on your work, so you can improve the  report2  | yes | optionally, replaced by the final paper|
-|project report2 |group       | 25     | end-Nov    | no            | when you submit, students must must specify if this is to be marked out of 25 of 75 |
+|report0: motivation, related work, methods | lit review      |group       | 25     | end-Sept   | yes           | optionally, replaced in the final reports |
+|report1: results |group    | 25     | end-Oct. submit to get feedback on your work, so you can improve the  report2  | yes | optionally, replaced by the final paper|
+|report2: report1 (improved)  |group       | 25     | end-Nov    | no            | when you submit, students must must specify if this is to be marked out of 25 of 75 |
 |final exam      |solo        | 30     |            | no            | if students take this exam, then it replaces the homework and mid-term grade |            
 
 With the final grades, the following grade scale will be used: 
@@ -91,7 +91,7 @@ Groups must post the homeworks each  week, even if it is incomplete, OR THEY WIL
 
 Otherwise, students are marked -1 for "not on time" or "try again". If you get a "-1" mark and resubmit, they are replaced with a "0".
 
-For the lit reviews and papers, students will lose 2 marks per day for late submissions (weekend = 2 day).
+For the rport, students will lose 2 marks per day for late submissions (weekend = 2 day).
 
 
 ## Policies
