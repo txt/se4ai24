@@ -42,7 +42,7 @@ pull: ## get updates from cloud
 	git pull --quiet
 
 push: ## save local changes to cloud
-	read -ep "Why this push? " x; git commit -am "$$x" --quiet
+	- read -ep "Why this push? " x; git commit -am "$$x" --quiet
 	git push --quiet -u --no-progress
 	git status --short   
 
