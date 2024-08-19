@@ -4,7 +4,7 @@
 
 |Details      | Notes                           |
 |:------------|:--------------------------------|
-|When         | TuTh 11:45AM - 1:00PM           |
+|When         | TuTh 	4:30PM - 5:45PM           |
 |Where        | 01103 James B Hunt Jr Centennial|
 |Who          | Tim Menzies, timm@ieee.org      |
 |Office hours | 2pm to 4pm Wedneday, in my office (no appointment, first come, first serve)<br>Room: 3304:EB2<br>Phone: 304 376 2859 (\*)<br>(\*) Use only for dire circumstances  (e.g. car crash on way to exam).|
