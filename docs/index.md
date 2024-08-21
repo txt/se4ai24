@@ -2,8 +2,9 @@
 
 <br clear=all>
 
-[xxx](asdas) :: [xxx](asdas)
-
+| lectures|
+|---------|
+| [Why study simplicity?](00simple.md)
 ## What will we study?
 
 1. Current hot topics in [automated SE](https://link.springer.com/journal/10515/articles).
