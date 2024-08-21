@@ -1,6 +1,6 @@
-% How Much Data Needed for Learning?
-% Tim Menzies
-% August 22, 2024
+% How Much Data?
+
+<br clear=both>
 
 ## How Much data Do we need for Learning?
 
@@ -41,11 +41,32 @@ no. 5, pp. 412–428, 2017.
 [^nor11]: P. Norvig. (2011) The Unreasonable Effectiveness of
 Data. Youtube.  https://www.youtube.com/watch?v=yvDCzhbjYWs
 
+##  Before We Start….
+
+Review questions?
+
+1. What is the standard line on "how much data is enough?"
+   - From Peter Norvig
+   - From regression theory
+   - From semi-supervised learning
+2. Describe each of the following. What are their implications for human decision making
+   - Streaming over zero-diversity data
+   - STM, LTM
+   -  Shrikanth's early bird effect
+   - two results (Valerdi's work; repertory grids)
+     commenting on the rate at which we can extract considered opinions from humans
+3. In English, describe the following math results and their implications for data mining
+   - chesboard model
+   - probable correctness theory.
+4. Few-shot learning:
+   1. describe it
+   2. In what sense does FSL mean we can look at fewer examples?
+   3. In what sense does FSL require many, many examples?
 
 ## A more informed position: The question is wrong
 
 - It depends on the nature of the data
-  - e.g. if i show you, one at a time, 100 "1"s then we are pretty sure the 101-th thing will be "1".
+  - e.g. if I show you, one at a time, 100 "1"s then we are pretty sure the 101-th thing will be "1".
   - So if data clusters to regions with not much variance
     - then once we find those regions, we can stop
 - And sometimes its not what the data is...
@@ -277,7 +298,7 @@ https://stats.stackexchange.com/questions/1856/application-of-machine-learning-t
 [^nam18]: J. Nam, W. Fu, S. Kim, T. Menzies and L. Tan, "Heterogeneous Defect Prediction," in 
 IEEE Transactions on Software Engineering, vol. 44, no. 9, pp. 874-896, 1 Sept. 2018, doi: 10.1109/TSE.2017.2720603.
 
-# # Few shot Learning 
+## Few shot Learning 
 
 In the following, the author says **LLMs** not **learners** but given the results of this subject, I think an edit is in order:
 

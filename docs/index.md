@@ -4,7 +4,10 @@
 
 | lectures|
 |---------|
-| [Why study simplicity?](00simple.md)
+| [Why study simplicity?](00simple.md) |
+| [How simple is needed?](01lessdata.md) |
+| [Active Learning](https://txt.github.io/se24fall/03code.html)|
+
 ## What will we study?
 
 1. Current hot topics in [automated SE](https://link.springer.com/journal/10515/articles).
