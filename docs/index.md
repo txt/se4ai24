@@ -2,12 +2,6 @@
 
 <br clear=all>
 
-| lectures|
-|---------|
-| [Why study simplicity?](00simple.html) |
-| [How simple is needed?](01lessdata.html) |
-| [Fundamentals](https://txt.github.io/se24fall/03code.html)|
-
 ## What will we study?
 
 1. Current hot topics in [automated SE](https://link.springer.com/journal/10515/articles).
@@ -29,7 +23,24 @@ A standard project in this subject would test itself on data from dozens of SE p
     - find better settings for random forest classifiers (aside: our methods could
          apply to the tuning of any learners).
 
-## Why you are here
+| lectures|
+|---------|
+| [Why study simplicity?](00simple.html) |
+| [How simple is needed?](01lessdata.html) |
+| [Fundamentals](https://txt.github.io/se24fall/03code.html)|
+
+| project material | nodes|
+|------------------|------|
+| [Fundamentals](https://txt.github.io/se24fall/03code.html)| intro to the code |
+|     [data](https://github.com/timm/ezr/tree/main/data)       |     60+ data sets. Avoid the "old" directory     |
+| [one problem](https://cseweb.ucsd.edu/~tixu/papers/fse15.pdf) | the problem of configuration. FYI there are many more prpblems|
+| many more [problems](https://timm.github.io/ezr/what2do.html) | your project  might come from here|
+|  sample     [readings](https://docs.google.com/spreadsheets/d/1QujJFLi9IrbXGX8iilCU6vodwa7psvBQv0GFSAEvmuw/edit?usp=sharing) | may not apply to your projects   .Only read the more cited one top. [Table 1](pdf/lit.pdf) of this doc can be useful.    |
+| [paydirt](https://link.springer.com/content/pdf/10.1007/s11831-024-10064-z.pdf) | page 3009, left hand side. Why we read papers |
+
+(Note it takes a long time to read papers. So We have a whole deliverable devoted to that task.)
+
+## Motivation
 
 You want to get better at brain surgery.
 
@@ -51,7 +62,7 @@ Also, maybe you want to teach others about how to be an AI brain surgeons.
 
 <img width="800px" src=img/papers.png>
 
-## Why do this class?
+### So, why do this class?
 
 - It is amazing :
   - 20-40 samples of any domain and we can model it? Incroyable!  Je suis stupéfait ! Cela change tout !
