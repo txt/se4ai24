@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Do we know enough to make it simpler?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class=wrapper>
+<p>
+csc 591-024, (8290)<br>
+csc 791-024, (8291)<br>
+fall 2024, special topics in computer science<br>
+Tim Menzies, timm@ieee.org, com sci, nc state
+<hr>
+<a href="index.html">home</a>
+:: <a href="timetable.html">timetable</a>
+:: <a href="syllabus.html">syllabus</a>
+:: <a href="groups.html">groups</a> 
+:: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
+:: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
+<img src="img/brain.png" align=left width=280
+style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10px 10px #222); filter: drop-shadow(-10px 10px 10px #222); ">
+
+
+<header id="title-block-header">
+<h1 class="title">Do we know enough to make it simpler?</h1>
+</header>
+<h2 id="i-want-you-to-be-an-ai-brain-surgeon">I want you… to be an (AI)
+brain surgeon</h2>
+<ul>
+<li>I want to make you the AI software engineers:
+<ul>
+<li>that know how to reach inside smart algorithms and make changes</li>
+</ul></li>
+<li>Surely, by now, we can do that:
+<ul>
+<li>If you have been doing something for a while then can you or I:
+<ul>
+<li>Do it simpler, faster. using fewer resources?</li>
+<li>Know how to combine things, such that you can more with less?</li>
+<li>Teach seemingly complex things to newbies?</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="can-we-engineering-an-ai-system-simply-quickly">Can we
+engineering an AI system? Simply? Quickly?</h2>
+<p>Here we explore dozens of SE problems <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+using explainable AI for semi-supervised multi-objective
+optimization.</p>
+<ul>
+<li>Internally, this is coded via sequential model optimization and
+membership query synthesis.</li>
+</ul>
+<p>Sounds complex, right?</p>
+<ul>
+<li>But it ain’t.</li>
+<li>In fact, as I hope to show, all the above is just a hundred lines of
+code (caveat: if you are using the right underlying object model).</li>
+</ul>
+<h2 id="which-raises-the-question.">Which raises the question….</h2>
+<p>What else is similarly simple?</p>
+<ul>
+<li>How many of our complex problems … aren’t?</li>
+</ul>
+<p>My challenge to you is this:</p>
+<ul>
+<li>Please go and find out.</li>
+<li>Take a working system, see what you can throw away (while the
+remaining system is still useful and fast).</li>
+<li>Let me know happens so I can add your fantastic new, and simple,
+idea to this code</li>
+</ul>
+<h2 id="why-study-simplicity">Why study simplicity?</h2>
+<ul>
+<li>Cause we are getting really really good at reasoning with very
+little data</li>
+<li>Cause its good science
+<ul>
+<li>If you really understand “it”, can you do “it” again, very very
+simply</li>
+</ul></li>
+<li>Cause the world is changing
+<ul>
+<li>Next generation of satellite internet providers</li>
+<li>Connecting millions of new programmers willing to work for <span
+class="math inline">\(\frac{1}{20}\)</span>th of the salary you
+want</li>
+<li>In that world, you do not want to be the programmer</li>
+<li>You want to be the optimizer who controls and improves the work of
+others.</li>
+</ul></li>
+<li>Cause almost no one else is studying reasoning with very little
+data</li>
+</ul>
+<h2 id="why-study-simplicity-2">Why study simplicity? (2)</h2>
+<ul>
+<li>Cause everyone has gone mad on complexity.
+<ul>
+<li>A small number of very large companies have built empires based on
+“big data”</li>
+<li>Five years ago, no on one wanted to head about simplicity</li>
+<li>But after three years of constant tech lay offs, and increasing
+challenges for getting jobs at these large organizations …</li>
+<li>… my students now know they need to graduate with knowledge about
+“big data” AND alternate approaches.</li>
+</ul></li>
+<li>Cause big data is running out of data (see next slide).</li>
+</ul>
+<h2 id="surfing-the-long-tail">Surfing the long tail</h2>
+<ul>
+<li>LLMs? For everything?
+<ul>
+<li>LLMs know a lot, about things we do a lot (e.g. “if” statements in
+code)</li>
+<li>And they know <em>less</em> about things we do <em>less</em>
+often</li>
+</ul></li>
+<li>Model collapse:
+<ul>
+<li>We are about to run out of training data <a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> for
+LLMs.</li>
+<li>Can’t reply of synthetic data generation (no new information from
+data already seen)</li>
+</ul></li>
+<li>So, we make do with <em>less</em> data?
+<ul>
+<li>Are their domain, were models need less, not more, data?</li>
+</ul></li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a
+href="https://github.com/timm/ezr/tree/main/data">github.com/timm/ezr/tree/main/data</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Udandarao, V., Prabhu, A., Ghosh, A., Sharma, Y., Torr,
+P.H., Bibi, A., Albanie, S. and Bethge, M., 2024. No” zero-shot” without
+exponential data: Pretraining concept frequency determines multimodal
+model performance. arXiv preprint arXiv:2404.04125.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+</div>
+</body>
+</html>
