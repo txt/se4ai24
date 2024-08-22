@@ -1,4 +1,4 @@
-% Howme=work 1
+% Howework1
 
 <br clear=all>
 
@@ -24,15 +24,15 @@ Run this code and answer the following questions. Write short answers for each. 
 
 
 1. **heavens** d2h is short for "distance to heaven". How is it calculated?
-2. **Chebys"* : how is the cheyshev distance different to d2h?
+2. **chebys** : how is the cheyshev distance different to d2h?
 2. **likings**
    - in english, explain how loglike is calculated? and how is that calculation different for numeric and symbolic columns?
    - Diversity sampling means that the next thing we look out should be different to everything seen before. So explain: "selecting for min loglike is a synonym for diversity sampling"
 3. **mean-vs-median**
-   - This cocde recursively divides data by (a) slitting data according to everyone's distance to two far points; then 9B) recursing into each half.
+   - This code recursively divides data by (a) slitting data according to everyone's distance to two far points; then (b) recursing into each half.
    - What is the difference between `half_median` and `half_mean`?
    - Referring to `~/tmp/out`a: in auto93.csv, does mean or median splits make a difference?
 4. **clusters** shows the results of a tree generated via mean splits, How would this tree be different if we used median splits?
-5. **clusters2** shows the results of prediction by (a) cluster the data (see **clusters*) then for each test example (b) find its nearest leaf cluster; then
-   (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what approach would you recommend?
+5. **clusters2** shows the results of prediction by (a) cluster the data (see **clusters**) then for each test (b) find its nearest leaf cluster; 
+   then (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what approach would you recommend?
 
