@@ -6,7 +6,7 @@
 |---------|
 | [Why study simplicity?](00simple.md) |
 | [How simple is needed?](01lessdata.md) |
-| [Active Learning](https://txt.github.io/se24fall/03code.html)|
+| [Fundamentals](https://txt.github.io/se24fall/03code.html)|
 
 ## What will we study?
 
