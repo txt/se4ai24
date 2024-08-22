@@ -1,6 +1,10 @@
 % Howme=work 1
 
+<br clear=all>
+
+
 Install Python 31.3
+
 - for [linux](https://txt.github.io/se24fall/03code.html#get-python3.13)
 - for [mac](https://www.python.org/downloads/macos/)
 - for windows: when you work it out, tell the class
@@ -12,8 +16,23 @@ Get the extension [extension](https://txt.github.io/se24fall/03code.html#try-it-
 - note that data divides into small,medium, high dimensionality  (number of x columns) and 
   size (number of rows)
 
-Make a conclusion:
+Here is a command line that runs all the current built-in examples. Please run it
 
-- see it if  holds for data with different dimensions and sizes
+    python3 -B ezr.py -D -e all -t data/optimize/misc/auto93.csv > ~/tmp/out
 
-# https://timm.github.io/ezr/what2do.html
+Run this code and answer the following questions. Write short answers for each. Submit one set of answers per team.
+
+
+1. **heavens** d2h is short for "distance to heaven". How is it calculated?
+2. **Chebys"* : how is the cheyshev distance different to d2h?
+2. **likings**
+   - in english, explain how loglike is calculated? and how is that calculation different for numeric and symbolic columns?
+   - Diversity sampling means that the next thing we look out should be different to everything seen before. So explain: "selecting for min loglike is a synonym for diversity sampling"
+3. **mean-vs-median**
+   - This cocde recursively divides data by (a) slitting data according to everyone's distance to two far points; then 9B) recursing into each half.
+   - What is the difference between `half_median` and `half_mean`?
+   - Referring to `~/tmp/out`a: in auto93.csv, does mean or median splits make a difference?
+4. **clusters** shows the results of a tree generated via mean splits, How would this tree be different if we used median splits?
+5. **clusters2** shows the results of prediction by (a) cluster the data (see **clusters*) then for each test example (b) find its nearest leaf cluster; then
+   (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what approach would you recommend?
+
