@@ -4,8 +4,8 @@
 
 | lectures|
 |---------|
-| [Why study simplicity?](00simple.md) |
-| [How simple is needed?](01lessdata.md) |
+| [Why study simplicity?](00simple.html) |
+| [How simple is needed?](01lessdata.html) |
 | [Fundamentals](https://txt.github.io/se24fall/03code.html)|
 
 ## What will we study?
