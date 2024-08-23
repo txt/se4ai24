@@ -5,11 +5,11 @@
 
 |What  | When            |  Notes  |
 |:-----|:----------------|---------|
-|Aug29 | [Tut1](hw1.html)            |         |
-|Sep5  | Tut2            |         |
-|Sep12 | Tut3            |         |
+|sept3 | [Tut1](hw1.html)            |         |
+|Sep10  | Tut2            |         |
+|Sep19 | Tut3            |         |
 |Sep17 | Wellness day    | no class|
-|Sep24 | Tut4            |         |
+|Sep26 | Tut4            |         |
 |Oct1  | Lit review due  |         |
 |Oct3  | Tut5            |         |
 |Oct10 | Mid term exam   |         |
