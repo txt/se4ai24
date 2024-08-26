@@ -6,7 +6,7 @@
 |What  | When            |  Notes  |
 |:-----|:----------------|---------|
 |sept3 | [Tut1](hw1.html)            |         |
-|Sep10  | Tut2            |         |
+|Sep10  | [Tut2](hw2.html)            |         |
 |Sep19 | Tut3            |         |
 |Sep17 | Wellness day    | no class|
 |Sep26 | Tut4            |         |

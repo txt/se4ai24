@@ -115,99 +115,187 @@ style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10p
 <h1 class="title">Howework2</h1>
 </header>
 <p><br clear=all></p>
-<p>(Note: the following works for LINUX and Mac. Windows users, please
-join in a disucssion at
-[windows](https://discord.com/channels/1274561111420702720/1276992727761817611]
-1. Update your code from http://github.com</p>
+<h2 id="what-to-hand-in">What to hand in</h2>
+<p>Output from Part 8. Answers to Questions 9.10,11. All in one pdf
+file.</p>
+<h2 id="note">Note</h2>
+<p>The following works for LINUX and Mac. Windows users, please join in
+a discussion at <a
+href="https://discord.com/channels/1274561111420702720/1276992727761817611">windows</a>.
+Or, don’t use windows and use codespaces on Github.</p>
+<p>(If using codespaces on Github, carefully monitor your monthly costs
+using [this
+link])https://docs.github.com/en/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)</p>
+<ul>
+<li>Students in prior years report that codespaces costs just a few
+dollars per months.</li>
+<li>That said, it is possible to design a nasty experiment that consumes
+much more $$$. Caveat Emptor.</li>
+</ul>
+<hr />
+<ol type="1">
+<li>Update your code from http://github.com/timm/ezr. Remember to use
+the 24Aug14 branch. Do not edit my files.. Instead write an extension
+(see last week on how to write an extension).</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/timm/ezr/</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout 24Aug14</span></code></pre></div>
 <ol start="2" type="1">
 <li><p>Install the htop monitor so you can track executions (Windows
 users many have an equivalent tool).</p></li>
-<li><p>Run all our models. The following code auto-generated a file
-$(Tmp)/acts.sh. Note that by editing this file and running “sh acts.sh”
-you can rerun all the experiments.</p>
-<p>make acts</p></li>
-<li><p>Monitor with “htop -F Python” or some equivalent.</p></li>
+<li><p>Generate a run file for the “clusters2” action.</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/tmp/clusters2</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> Act=clusters2 actb4 <span class="op">&gt;</span> ~/tmp/cluster2.sh</span></code></pre></div>
+<ol start="4" type="1">
+<li><p>Edit that file. Using the “#” character, comment one very line
+EXCEPT those that mention SS-*.csv. Also comment out the lines than
+mention SS-W, SS-X SS-N (cuase these are slow to run),</p></li>
+<li><p>Run that file. You will not see any output for a minute or
+two.</p></li>
+</ol>
+<pre><code>bash ~/tmp/clusters2</code></pre>
+<ol start="6" type="1">
+<li>Monitor with execution with “htop -F Python” or some
+equivalent.</li>
 </ol>
 <p><img src="img/htop.png" width=500></p>
-<p>After 30 minutes, do you have any nasty models still running? If yes,
-then kill those processes and do not use them in the following. After
-killing, look at the tail of files in $(Tmp)/mqs. Does the last line
-look funny (i.e. a killed process did not complete writing that line?).
-If yes, delete that file.</p>
-<ol start="5" type="1">
-<li><p>Based on the <a
-href="https://txt.github.io/se24fall/03code.html#try-it-for-yourself">extension</a>
-you ran last time, there are nine groups of files with small, medium and
-high dimensionality and small, medium, high number of rows. Run the
-summary stats function to see if different conclusions hold for
-different groups. For example (and you will need to modify this
-example):</p>
-<p>cd erz/etc bash rq.sh ~/tmp/mqs/SS<em>.csv # just summarize the
-results from the SS-</em>.csv files</p></li>
+<ol start="7" type="1">
+<li>If, after 30 minutes elapsed time, there are still jobs running,
+kill them.
+<ul>
+<li>If you kill jobs, delete any output file corrupted by that kill
+(i.e. edit all the ~/tmp/clusters2/*.csv files looking for strange last
+lines).</li>
+</ul></li>
+<li>Generate a report of all the Go to the output directory and type the
+following commands:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> cd ~/tmp/clusters2</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> grep k1 <span class="pp">*</span>.csv  <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="op">&gt;</span> /tmp/k1</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> grep k2 <span class="pp">*</span>.csv  <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="op">&gt;</span> /tmp/k2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> grep k3 <span class="pp">*</span>.csv  <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="op">&gt;</span> /tmp/k3</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> grep k5 <span class="pp">*</span>.csv  <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="op">&gt;</span> /tmp/k5</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> grep mid <span class="pp">*</span>.csv <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d,</span> <span class="at">-f</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="op">&gt;</span> /tmp/mid</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> paste /tmp/k1 /tmp/k2 /tmp/k3 /tmp/k5 /tmp/mid</span></code></pre></div>
+<p>The results should look like this. Here, we guess a goal value by
+clustering the data then for each test instance (a) finding its relevant
+cluster; then (b) using either the k=1,2,3,5 neighbors closest neighbors
+(or the mid-point of that cluster).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="va">k</span><span class="op">=</span>1     <span class="va">k</span><span class="op">=</span>2     <span class="va">k</span><span class="op">=</span>3     <span class="va">k</span><span class="op">=</span>5      <span class="ex">mid</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">====</span>     =====  ====     =====   =====</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.42</span>   <span class="at">-0.21</span>   <span class="at">-0.34</span>   <span class="at">-0.28</span>   <span class="at">-0.92</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.07</span>   <span class="at">-0.10</span>   <span class="at">-0.16</span>   <span class="at">-0.24</span>   <span class="at">-0.62</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.03</span>   <span class="at">-0.03</span>   <span class="at">-0.09</span>   <span class="at">-0.19</span>   <span class="at">-0.36</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.02</span>   <span class="at">-0.02</span>   <span class="at">-0.05</span>   <span class="at">-0.19</span>   <span class="at">-0.22</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.01</span>   <span class="at">-0.01</span>   <span class="at">-0.03</span>   <span class="at">-0.18</span>   <span class="at">-0.18</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>    0.00   <span class="at">-0.02</span>   <span class="at">-0.06</span>   <span class="at">-0.17</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>    0.00   <span class="at">-0.01</span>   <span class="at">-0.05</span>   <span class="at">-0.13</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>    0.00   <span class="at">-0.01</span>   <span class="at">-0.02</span>   <span class="at">-0.12</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>    0.00   <span class="at">-0.01</span>   <span class="at">-0.01</span>   <span class="at">-0.12</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>    0.00    0.00    0.00   <span class="at">-0.11</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>   <span class="at">-0.00</span>    0.00    0.00   <span class="at">-0.11</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.00</span>   <span class="at">-0.00</span>    0.00   <span class="at">-0.00</span>   <span class="at">-0.08</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.00</span>   <span class="at">-0.00</span>    0.00   <span class="at">-0.00</span>   <span class="at">-0.07</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.00</span>   <span class="at">-0.00</span>    0.00   <span class="at">-0.00</span>   <span class="at">-0.02</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.00</span>   <span class="at">-0.00</span>    0.00   <span class="at">-0.00</span>   <span class="at">-0.02</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.00</span>    0.01    0.00    0.01   <span class="at">-0.02</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a> <span class="ex">-0.00</span>    0.01   <span class="at">-0.00</span>    0.01   <span class="at">-0.01</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.01</span>    0.01   <span class="at">-0.00</span>    0.03    0.03</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.01</span>    0.03    0.01    0.04    0.03</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.01</span>    0.05    0.01    0.05    0.07</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">0.02</span>    0.05    0.01    0.05    0.20</span></code></pre></div>
+<p>These are all “z” scores; i.e. <code>(x - mid)/sd</code>. Note
+that:</p>
+<ul>
+<li>All columns are sorted. The middle values are close to zero.
+i.e. usually we can predict very well.</li>
+<li>According the Cohen, differences less than 35% of a standard
+deviation are a “small effect” (i.e. trivial). Note that most of our
+numbers are trivial.</li>
+</ul>
+<h2 id="questions-to-hand-in">Questions (to hand in)</h2>
+<ol start="9" type="1">
+<li><strong>clustering</strong>:
+<ul>
+<li>How does the <code>predict</code> function in ezr.py make a
+prediction (predict is called inside the <code>clusters2</code>
+function)?</li>
+<li>What might be faster to run? K-th nearest neighbors in all the data?
+k-th nearest neighbors in a leaf cluster? or just using the value of the
+mid point of each cluster? Justify your answer.</li>
+<li>What might be more accurate (for prediction)? K-th nearest neighbors
+in all the data? k-th nearest neighbors in a leaf cluster? or just using
+the value of the mid point of each cluster? Justify your answer.</li>
+<li>Check your last answer as follows.<br />
+According the Cohen, differences less than 35% of a standard deviation
+are a “small effect” (i.e. trivial). After discounting small effects,
+what do you observe for part (8) about the relative accuracy of
+prediction using k=1,2,3,5 neighbors (or just the mid=point)?</li>
+</ul></li>
+<li><strong>regression, classification:</strong>
+<ul>
+<li>in terms of tabular data and inputs and outputs, how is regression
+and classification same/different?</li>
+<li>Given an algorithm that can find (say) five nearest neighbors to a
+test case, how could you implement regression and classification
+(usually basically the same code)?</li>
+</ul></li>
+<li><strong>multi-objective:</strong>
+<ul>
+<li>list three SE problems with 3 competing goals (each);</li>
+</ul></li>
+<li><strong>normalization:</strong> look at the code
+<code>def chebyshev</code>. Whey do we normalize the goal values?</li>
+<li><strong>entropy:</strong>
+<ul>
+<li>write down for formula for entropy. Explain all terms.</li>
+<li>show the calculation of the entropy of a set of eight apples and
+four oranges (show all working).</li>
+</ul></li>
+<li><strong>standard deviation:</strong></li>
 </ol>
 <ul>
-<li><p>remember to use the 24Aug14 branch</p></li>
-<li><p>see examples <a
-href="https://txt.github.io/se24fall/03code.html#try-it-for-yourself">here</a></p></li>
-<li><p>note that data divides into small,medium, high dimensionality
-(number of x columns) and size (number of rows)</p>
-<p>make How many of our models do not complete</p></li>
+<li>In an ascii diagram, draw two gaussian curves (bell-shapped), where
+curve one has twice the mean and half the standard deviation of the
+other.</li>
+<li>Write down the formula for standard deviation. Explain all
+terms.</li>
+<li>Show the calculation of standard deviation for the set {1,1,2}. You
+can leave the answers in a fraction form.</li>
 </ul>
-<p>Install Python 31.3</p>
+<ol start="11" type="1">
+<li><strong>distance:</strong> define and distinguish Euclidean from the
+Chebyshev distance.</li>
+<li><strong>Bayes Classifier</strong>: Ignoring any low frequency
+factors (like m or k), compute the following. Show all working:
 <ul>
-<li>for <a
-href="https://txt.github.io/se24fall/03code.html#get-python3.13">linux</a></li>
-<li>for <a href="https://www.python.org/downloads/macos/">mac</a></li>
-<li>for windows: when you work it out, tell the class</li>
-</ul>
-<p>Get the extension <a
-href="https://txt.github.io/se24fall/03code.html#try-it-for-yourself">extension</a>
-going</p>
+<li>prior(no)</li>
+<li>prior(yes)</li>
+<li>Looking data just from outlook and the play! column, jdp you predict
+<code>yes</code> or <code>no</code> for the following. Show all working.
 <ul>
-<li>remember to use the 24Aug14 branch</li>
-<li>see examples <a
-href="https://txt.github.io/se24fall/03code.html#try-it-for-yourself">here</a></li>
-<li>note that data divides into small,medium, high dimensionality
-(number of x columns) and size (number of rows)</li>
-</ul>
-<p>Here is a command line that runs all the current built-in examples.
-Please run it</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>python3 <span class="op">-</span>B ezr.py <span class="op">-</span>D <span class="op">-</span>e <span class="bu">all</span> <span class="op">-</span>t data<span class="op">/</span>optimize<span class="op">/</span>misc<span class="op">/</span>auto93.csv <span class="op">&gt;</span> <span class="op">~/</span>tmp<span class="op">/</span>out</span></code></pre></div>
-<p>Run this code and answer the following questions. Write short answers
-for each. Submit one set of answers per team.</p>
-<ol type="1">
-<li><strong>heavens</strong> d2h is short for “distance to heaven”. How
-is it calculated?</li>
-<li><strong>chebys</strong> : how is the cheyshev distance different to
-d2h?</li>
-<li><strong>likings</strong>
-<ul>
-<li>in english, explain how loglike is calculated? and how is that
-calculation different for numeric and symbolic columns?</li>
-<li>Diversity sampling means that the next thing we look out should be
-different to everything seen before. So explain: “selecting for min
-loglike is a synonym for diversity sampling”</li>
+<li>outlook=overcast</li>
+<li>humidity=normal</li>
 </ul></li>
-<li><strong>mean-vs-median</strong>
-<ul>
-<li>This code recursively divides data by (a) slitting data according to
-everyone’s distance to two far points; then (b) recursing into each
-half.</li>
-<li>What is the difference between <code>half_median</code> and
-<code>half_mean</code>?</li>
-<li>Referring to <code>~/tmp/out</code>a: in auto93.csv, does mean or
-median splits make a difference?</li>
 </ul></li>
-<li><strong>clusters</strong> shows the results of a tree generated via
-mean splits, How would this tree be different if we used median
-splits?</li>
-<li><strong>clusters2</strong> shows the results of prediction by (a)
-cluster the data (see <strong>clusters</strong>) then for each test (b)
-find its nearest leaf cluster; then (c) using either the median value of
-that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what
-approach would you recommend?</li>
 </ol>
+<pre><code>outlook   ,temperature   ,humidity   ,windy   ,play!
+=======   ==========   =========    ======   =====
+sunny     ,hot         ,high       ,FALSE   ,no
+sunny     ,hot         ,high       ,TRUE    ,no
+rainy     ,cool        ,normal     ,TRUE    ,no
+sunny     ,mild        ,high       ,FALSE   ,no
+rainy     ,mild        ,high       ,TRUE    ,no
+overcast  ,hot         ,high       ,FALSE   ,yes
+rainy     ,mild        ,high       ,FALSE   ,yes
+rainy     ,cool        ,normal     ,FALSE   ,yes
+overcast  ,cool        ,normal     ,TRUE    ,yes
+sunny     ,cool        ,normal     ,FALSE   ,yes
+rainy     ,mild        ,normal     ,FALSE   ,yes
+sunny     ,mild        ,normal     ,TRUE    ,yes
+overcast  ,mild        ,high       ,TRUE    ,yes
+overcast  ,hot         ,normal     ,FALSE   ,yes</code></pre>
 
 
 
