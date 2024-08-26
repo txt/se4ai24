@@ -27,12 +27,16 @@ can rerun all the experiments.
 
 <img src="img/htop.png" width=500>
 
+less than .35 sd
+
+XXX exit file. using "#", comment out antyhing that is not an SS-* file
+
 After 30 minutes, do you have any large and nasty models still running? If yes, then kill those processes and do not use them in the following.
 After killing, look at the tail of files in ~/tmp/_mqs. Does the last line look funny (i.e. a killed process did not complete writing that line?).
 If yes, delete that file.
 
-5. Change directories into ~/tmp/_mqs. Take a look at what you find. You should see around 49 files. Inside of one them (eg. SS-A.csv) you will see things like the following.
-
+5. Change directories into ~/tmp/_mqs. Take a look at what you find. You should see around 49 files. 
+Inside of one them (eg. SS-A.csv) you will see things like the following.
 
 ```
 /Users/timm/gits/timm/ezr/data/optimize/config/SS-A.csv
@@ -118,60 +122,61 @@ tmp/_mqs:692 ▶
 
 What really matters is the stuff at the bottom (with six cells).
 
-5. Summarize the results
+6. Summarize the results
 
     cd ~/tmp/_mqs
     bash ~/gits/timm/ezr/etc/rq.sh *.csv # note: change to find your own dir
 
-(Note that this code runs on the csv files given on the command line. So you can run this script on 
-5.  Based on the 
+(Note that this code runs on the csv files given on the command line. So you can run this script on  any subset of 
+the data.)
+
+7.  Based on the 
 [extension](https://txt.github.io/se24fall/03code.html#try-it-for-yourself) you ran last time, there are nine groups of files
-with small, medium and high dimensionality and small, medium, high number of rows. Run the summary stats function to see if different
+with small, medium and high dimensionality and small, medium, high number of rows. Run the summary script on those nine
+subsets to see if different
 conclusions hold for different groups. For example (and you will need to modify this example):
 
     cd erz/etc
     bash rq.sh ~/tmp/mqs/SS*.csv # just summarize the  results from the SS-*.csv files
 
+## Questions (to hand in)
 
-
-- remember to use the 24Aug14 branch
-- see examples [here](https://txt.github.io/se24fall/03code.html#try-it-for-yourself)
-- note that data divides into small,medium, high dimensionality  (number of x columns) and 
-  size (number of rows)
-
-    make 
-How many of our models do not complete
-
-Install Python 31.3
-
-- for [linux](https://txt.github.io/se24fall/03code.html#get-python3.13)
-- for [mac](https://www.python.org/downloads/macos/)
-- for windows: when you work it out, tell the class
-
-Get the extension [extension](https://txt.github.io/se24fall/03code.html#try-it-for-yourself) going
-
-- remember to use the 24Aug14 branch
-- see examples [here](https://txt.github.io/se24fall/03code.html#try-it-for-yourself)
-- note that data divides into small,medium, high dimensionality  (number of x columns) and 
-  size (number of rows)
-
-Here is a command line that runs all the current built-in examples. Please run it
-
-    python3 -B ezr.py -D -e all -t data/optimize/misc/auto93.csv > ~/tmp/out
-
-Run this code and answer the following questions. Write short answers for each. Submit one set of answers per team.
-
-
-1. **heavens** d2h is short for "distance to heaven". How is it calculated?
-2. **chebys** : how is the cheyshev distance different to d2h?
-2. **likings**
-   - in english, explain how loglike is calculated? and how is that calculation different for numeric and symbolic columns?
-   - Diversity sampling means that the next thing we look out should be different to everything seen before. So explain: "selecting for min loglike is a synonym for diversity sampling"
-3. **mean-vs-median**
-   - This code recursively divides data by (a) slitting data according to everyone's distance to two far points; then (b) recursing into each half.
-   - What is the difference between `half_median` and `half_mean`?
-   - Referring to `~/tmp/out`a: in auto93.csv, does mean or median splits make a difference?
-4. **clusters** shows the results of a tree generated via mean splits, How would this tree be different if we used median splits?
-5. **clusters2** shows the results of prediction by (a) cluster the data (see **clusters**) then for each test (b) find its nearest leaf cluster; 
-   then (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what approach would you recommend?
-
+6. **regression, classification:** 
+   - in terms of tabular data and inputs and outputs, how is regression and classification same/different?
+   - Given an alagorithm that can find (say) five nearest neighbors to a test case, how could you implement regression and classification
+     (usually basically the same code)?
+7. **multi-objective:**
+   - list three SE problems with 3 competing goals (each);
+8. **normalization:** look at the code `def chebyshev`. Whey do we normalize the goal values?
+9. **entropy:** 
+   - write down for formula for entropy. Explain all terms.
+   - show the calculation  of the entropy of a set of eight apples and four oranges (show all working). 
+10. **standard deviation:** 
+   - Draw two gaussian curves, where curve one has twice the mean and half the standard deviation of the other.
+   - Write down the formula for standard deviation. Explain all terms.
+   - Show the calualtion of standard eviation for the set {1,1,2}. You can leave the answers in a fraction form.
+11. **distance:** define and distinquish Eucilidean from the Chebyshev distance.
+12. **Bayes Classifier**: Ignoring any low frequency factors (like m or k), compute the following. Show all working:
+    - prior(no)
+    - prior(yes)
+    - Given outlook=sunday and just looking at outlook and the priors, report 
+      - like(outlook=sunday|no)
+      - like(humidity=normal|yes)
+    
+```
+outlook   ,temperate   ,humidity   ,windy   ,play!
+sunny     ,hot         ,high       ,FALSE   ,no
+sunny     ,hot         ,high       ,TRUE    ,no
+rainy     ,cool        ,normal     ,TRUE    ,no
+sunny     ,mild        ,high       ,FALSE   ,no
+rainy     ,mild        ,high       ,TRUE    ,no
+overcast  ,hot         ,high       ,FALSE   ,yes
+rainy     ,mild        ,high       ,FALSE   ,yes
+rainy     ,cool        ,normal     ,FALSE   ,yes
+overcast  ,cool        ,normal     ,TRUE    ,yes
+sunny     ,cool        ,normal     ,FALSE   ,yes
+rainy     ,mild        ,normal     ,FALSE   ,yes
+sunny     ,mild        ,normal     ,TRUE    ,yes
+overcast  ,mild        ,high       ,TRUE    ,yes
+overcast  ,hot         ,normal     ,FALSE   ,yes
+```
