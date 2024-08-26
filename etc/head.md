@@ -8,7 +8,7 @@ Tim Menzies, timm@ieee.org, com sci, nc state
 <a href="index.html">home</a>
 :: <a href="timetable.html">timetable</a>
 :: <a href="syllabus.html">syllabus</a>
-:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?gid=0#gid=0">groups</a> 
+:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?usp=sharing">groups</a>
 :: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
 :: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
 <img src="img/brain.png" align=left width=280
