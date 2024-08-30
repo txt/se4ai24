@@ -31,8 +31,13 @@ Run this code and answer the following questions. Write short answers for each. 
 3. **mean-vs-median**
    - This code recursively divides data by (a) slitting data according to everyone's distance to two far points; then (b) recursing into each half.
    - What is the difference between `half_median` and `half_mean`?
-   - Referring to `~/tmp/out`a: in auto93.csv, does mean or median splits make a difference?
-4. **clusters** shows the results of a tree generated via mean splits, How would this tree be different if we used median splits?
-5. **clusters2** shows the results of prediction by (a) cluster the data (see **clusters**) then for each test (b) find its nearest leaf cluster; 
-   then (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what approach would you recommend?
+   - Referring to [this output from python3 ezr.py -e mean_or_median -t auto93.csv](https://discord.com/channels/1274561111420702720/1275424775723941911/1279074151981776986)
+       does mean or median splits make a difference?
+4. **python3 ezr.py -e clusters -t data/optimize/misc/auto93.csv** generates  a tree generated via mean splits
+   - reproduce the same output 
+   - How would this tree be different if we used median splits?
+5. **python3 ezr.py -e clusters2 -t data/optimize/misc/auto93.csv** shows the results of prediction by (a) cluster the data (see **clusters**) then for each test (b) find its nearest leaf cluster; 
+   then (c) using either the median value of that leaf or the 1,2,3,5 nearest neighbor. 
+   - generate  that output and show it in the homeworks response. t 
+   - Based on these results, what approach would you recommend?
 

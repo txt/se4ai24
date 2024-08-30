@@ -158,17 +158,27 @@ everyone’s distance to two far points; then (b) recursing into each
 half.</li>
 <li>What is the difference between <code>half_median</code> and
 <code>half_mean</code>?</li>
-<li>Referring to <code>~/tmp/out</code>a: in auto93.csv, does mean or
-median splits make a difference?</li>
+<li>Referring to <a
+href="https://discord.com/channels/1274561111420702720/1275424775723941911/1279074151981776986">this
+output from python3 ezr.py -e mean_or_median -t auto93.csv</a> does mean
+or median splits make a difference?</li>
 </ul></li>
-<li><strong>clusters</strong> shows the results of a tree generated via
-mean splits, How would this tree be different if we used median
-splits?</li>
-<li><strong>clusters2</strong> shows the results of prediction by (a)
-cluster the data (see <strong>clusters</strong>) then for each test (b)
-find its nearest leaf cluster; then (c) using either the median value of
-that leaf or the 1,2,3,5 nearest neighbor. Based on these results, what
-approach would you recommend?</li>
+<li><strong>python3 ezr.py -e clusters -t
+data/optimize/misc/auto93.csv</strong> generates a tree generated via
+mean splits
+<ul>
+<li>reproduce the same output</li>
+<li>How would this tree be different if we used median splits?</li>
+</ul></li>
+<li><strong>python3 ezr.py -e clusters2 -t
+data/optimize/misc/auto93.csv</strong> shows the results of prediction
+by (a) cluster the data (see <strong>clusters</strong>) then for each
+test (b) find its nearest leaf cluster; then (c) using either the median
+value of that leaf or the 1,2,3,5 nearest neighbor.
+<ul>
+<li>generate that output and show it in the homeworks response. t</li>
+<li>Based on these results, what approach would you recommend?</li>
+</ul></li>
 </ol>
 
 
