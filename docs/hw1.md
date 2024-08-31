@@ -31,7 +31,8 @@ Run this code and answer the following questions. Write short answers for each. 
 3. **mean-vs-median**
    - This code recursively divides data by (a) slitting data according to everyone's distance to two far points; then (b) recursing into each half.
    - What is the difference between `half_median` and `half_mean`?
-   - Referring to [this output from python3 ezr.py -e mean_or_median -t auto93.csv](https://discord.com/channels/1274561111420702720/1275424775723941911/1279074151981776986)
+   - Referring to [this output](https://discord.com/channels/1274561111420702720/1275424775723941911/1279074151981776986) from <br>
+       `python3 ezr.py -e mean_vs_median -t data/optimize/misc/auto93.csv` <br>
        does mean or median splits make a difference?
 4. **python3 ezr.py -e clusters -t data/optimize/misc/auto93.csv** generates  a tree generated via mean splits
    - reproduce the same output 
