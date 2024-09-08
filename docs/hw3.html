@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>HW3 : Testing an Research Hypotheses</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+<div class=wrapper>
+<p>
+csc 591-024, (8290)<br>
+csc 791-024, (8291)<br>
+fall 2024, special topics in computer science<br>
+Tim Menzies, timm@ieee.org, com sci, nc state
+<hr>
+<a href="index.html">home</a>
+:: <a href="timetable.html">timetable</a>
+:: <a href="syllabus.html">syllabus</a>
+:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?usp=sharing">groups</a>
+:: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
+:: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
+<img src="img/brain.png" align=left width=280
+style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10px 10px #222); filter: drop-shadow(-10px 10px 10px #222); ">
+
+
+<header id="title-block-header">
+<h1 class="title">HW3 : Testing an Research Hypotheses</h1>
+</header>
+<p>(IMPORTANT NOTE: the experimental runs for this one can take a while–
+especially if you find a find a mistake and have to start again. Do not
+make this a last minute rush job!!!).</p>
+<p>Three students from this class in the spring claim (Jacob, Joshua,
+and Rohan) claim that:</p>
+<ul>
+<li>JJR1: Nothing works better than 50 random guessed for low
+dimensional problems (less than 6 x attributes).</li>
+<li>JJR2: But such random guessing is rubbish for higher dimensional
+data. Let us test that.</li>
+</ul>
+<p>Use the extension from hw1 to find which data sets have less than 6
+independent values</p>
+<p>Run the following twice (once for the low dimensional data sets and
+once for the other). See what conclusions are found.</p>
+<p>Noe that the following is quickly written pseudo code. May have
+mistakes. You fix them. Have fun!</p>
+<ul>
+<li>for N in (20,30,40,50)
+<ul>
+<li>d = DATA.new().csv(data)</li>
+<li>dumb = [guess(N,d) for _ in range(20)]</li>
+<li>dumb = [d.chebyshev( lst[0] ) for lst in dumb]</li>
+<li>the.Last = N</li>
+<li>smart = [d.shuffle().activeLearning() for _ in range(20)]</li>
+<li>smart = [d.chebyshev( lst[0] ) for lst in smart]</li>
+<li>add dumb and smart a list of SOME with the appropriate labeling
+<ul>
+<li>see clusters2 in ezr.py for an example on how to do that</li>
+</ul></li>
+<li>print the usual files, one file per data set (so the results should
+have
+<ul>
+<li>dumb,20</li>
+<li>dumb,30</li>
+<li>dumb.40</li>
+<li>dumb,50</li>
+<li>smart,20</li>
+<li>smart,30</li>
+<li>smart.40</li>
+<li>smart,50</li>
+</ul></li>
+</ul></li>
+<li>function guess(N,d)
+<ul>
+<li>pick N rows at random
+<ul>
+<li>hint some = random.choices(d.rows,k=N)</li>
+</ul></li>
+<li>sort them on chebyshev
+<ul>
+<li>hint: d.clone().adds(some).chebyshevs().rows</li>
+</ul></li>
+<li>return the rows of some, sorted on chebyshev.</li>
+</ul></li>
+</ul>
+<h2 id="experimental-scripts-must-be-commissioned">Experimental Scripts
+Must be “Commissioned”</h2>
+<p>The scripts you write for these experiments are always quirky and
+complex. It is very easy to make mistakes and have to throw out days of
+compute. So test experimental scripts have to be commissioned.</p>
+<ul>
+<li>If the code is nasty, don’t use it. Make it simpler.</li>
+<li>If person1 writes it, person2 has to inspect it. Very
+carefully.</li>
+</ul>
+<p>Also: add in tests to check that the expected stuff is actually
+happening. e.g.</p>
+<ul>
+<li>Does chebyshevs().rows[0] return the top item in that sort?</li>
+<li>Are smart and dumb lists the right length (i.e. N). if not, why
+not?</li>
+<li>Does you code really run some experimental treatment 20 times for
+statistical validity?</li>
+<li>Does d.shuffle() really jiggle the order of the data?</li>
+</ul>
+<h2 id="how-to-run-a-long-experiment">How to run a long experiment</h2>
+<h2 id="how-to-summarize-a-long-experiments">How to summarize a long
+experiments</h2>
+<h2 id="what-to-hand-in">What to hand in</h2>
+<p>Submit a url link to moodle with a repo link that has a /hw3
+subdirectory</p>
+<ul>
+<li>/hs3/README.md should include notes on how to install and run your
+code, all the rq.sh results, a walk thought the table results
+summarizing what the tables are all about and what they are saying for
+this experiment, and a last paragraph that is a conclusion section of
+the form
+<ul>
+<li>“Since we observed XXXX, we confirm/ doubt/ refine the JJR1/ JJR2
+hypothesis as follows…” (and the “as follows” section is only needed if
+you want to refine the hypothesis).</li>
+</ul></li>
+<li>Include in your code tests cases that checks at least the items
+mentioned above (and you might want to check more).</li>
+</ul>
+
+
+
+
+</div>
+</body>
+</html>
