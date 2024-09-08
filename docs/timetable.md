@@ -10,7 +10,7 @@
 |Sep19 | Tut3            |         |
 |Sep17 | Wellness day    | no class|
 |Sep26 | Tut4            |         |
-|Oct1  | Lit review due  |         |
+|Oct1  | Lit review due  |  [About lit Review](litreview.html)       |
 |Oct3  | Tut5            |         |
 |Oct10 | Mid term exam   |         |
 |Oct15 | Fall break      | no class|
