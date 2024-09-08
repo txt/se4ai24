@@ -104,6 +104,7 @@ Ideally, all your papers are recent, highly cited, and from top-ranked venues.
 Steps for a lit review:
 
 - REFLECT: find terms of interesting. 3-5 terms.
+  - For a list of candidate problems [what2do.html](what2do.html). But feel free to go beyond this list.
   - Note you will initially get this wrong. e.g. I was looking for "software engineering" "active leaning" initialization
     and got very little back. Then after some reading, I realized that "warm start" was the more standard term for "initialization".
     Which got me to some very cool stuff indeed.
