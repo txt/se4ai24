@@ -4,7 +4,7 @@
 
 ## What to hand in
 
-Output from Part 8. Answers to Questions 9.10,11. All in one  pdf file.
+Output from Part 8. Answers to Questions 9,10,11.12,13,14,15,16  All in one  pdf file.
 
 ## Note
 
@@ -106,22 +106,22 @@ These are all "z" scores; i.e. `(x - mid)/sd`.  Note that:
    - Check your last answer as follows.  
         According the Cohen, differences less than 35% of a standard deviation are a "small effect" (i.e. trivial). After discounting small effects, 
      what do you observe for part (8) about the relative  accuracy of prediction using k=1,2,3,5 neighbors (or just the mid=point)?
-6. **regression, classification:** 
+10. **regression, classification:** 
    - in terms of tabular data and inputs and outputs, how is regression and classification same/different?
    - Given an algorithm that can find (say) five nearest neighbors to a test case, how could you implement regression and classification
      (usually basically the same code)?
-7. **multi-objective:**
+11. **multi-objective:**
    - list three SE problems with 3 competing goals (each);
-8. **normalization:** look at the code `def chebyshev`. Whey do we normalize the goal values?
-9. **entropy:** 
+12. **normalization:** look at the code `def chebyshev`. Whey do we normalize the goal values?
+13. **entropy:** 
    - write down for formula for entropy. Explain all terms.
    - show the calculation  of the entropy of a set of eight apples and four oranges (show all working). 
-10. **standard deviation:** 
+14. **standard deviation:** 
    - In an ascii diagram,  draw two gaussian curves (bell-shapped), where curve one has twice the mean and half the standard deviation of the other.
    - Write down the formula for standard deviation. Explain all terms.
    - Show the calculation of standard deviation for the set {1,1,2}. You can leave the answers in a fraction form.
-11. **distance:** define and distinguish Euclidean from the Chebyshev distance.
-12. **Bayes Classifier**: Ignoring any low frequency factors (like m or k), compute the following. Show all working:
+15. **distance:** define and distinguish Euclidean from the Chebyshev distance.
+16. **Bayes Classifier**: Ignoring any low frequency factors (like m or k), compute the following. Show all working:
     - prior(no)
     - prior(yes)
     - Looking data just from outlook and the play! column, jdp you predict `yes` or `no` for the following. Show all working. 
