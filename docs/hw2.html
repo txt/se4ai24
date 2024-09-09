@@ -146,7 +146,7 @@ users many have an equivalent tool).</p></li>
 <li><p>Generate a run file for the “clusters2” action.</p></li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/tmp/clusters2</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> Act=clusters2 actb4 <span class="op">&gt;</span> ~/tmp/cluster2.sh</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> Act=clusters2 actb4 <span class="op">&gt;</span> ~/tmp/clusters2.sh</span></code></pre></div>
 <ol start="4" type="1">
 <li><p>Edit that file. Using the “#” character, comment one very line
 EXCEPT those that mention SS-*.csv. Also comment out the lines than
@@ -154,7 +154,7 @@ mention SS-W, SS-X SS-N (cuase these are slow to run),</p></li>
 <li><p>Run that file. You will not see any output for a minute or
 two.</p></li>
 </ol>
-<pre><code>bash ~/tmp/clusters2</code></pre>
+<pre><code>bash ~/tmp/clusters2.sh</code></pre>
 <ol start="6" type="1">
 <li>Monitor with execution with “htop -F Python” or some
 equivalent.</li>

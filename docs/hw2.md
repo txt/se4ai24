@@ -31,7 +31,7 @@ git checkout 24Aug14
 
 ```sh
 mkdir -p ~/tmp/clusters2
-make Act=clusters2 actb4 > ~/tmp/cluster2.sh
+make Act=clusters2 actb4 > ~/tmp/clusters2.sh
 ```
 
 4. Edit that file. Using the "#" character, comment one very line EXCEPT those that mention SS-*.csv. Also comment out the lines than mention SS-W, SS-X SS-N (cuase these are slow to run),
@@ -39,7 +39,7 @@ make Act=clusters2 actb4 > ~/tmp/cluster2.sh
 5. Run that file. You will not see any output for a minute or two.
 
 ```
-bash ~/tmp/clusters2
+bash ~/tmp/clusters2.sh
 ```
 
 6. Monitor with execution with "htop -F Python" or some equivalent.
