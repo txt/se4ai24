@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>HW4 : Concepts</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class=wrapper>
+<p>
+csc 591-024, (8290)<br>
+csc 791-024, (8291)<br>
+fall 2024, special topics in computer science<br>
+Tim Menzies, timm@ieee.org, com sci, nc state
+<hr>
+<a href="index.html">home</a>
+:: <a href="timetable.html">timetable</a>
+:: <a href="syllabus.html">syllabus</a>
+:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?usp=sharing">groups</a>
+:: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
+:: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
+<img src="img/brain.png" align=left width=280
+style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10px 10px #222); filter: drop-shadow(-10px 10px 10px #222); ">
+
+
+<header id="title-block-header">
+<h1 class="title">HW4 : Concepts</h1>
+</header>
+<ol type="1">
+<li>What is the standard line on “how much data is enough?”
+<ul>
+<li>From Peter Norvig</li>
+<li>From regression theory</li>
+<li>From semi-supervised learning</li>
+</ul></li>
+<li>Describe each of the following. What are their implications for
+human decision making
+<ul>
+<li>Streaming over zero-diversity data</li>
+<li>STM, LTM</li>
+<li>Shrikanth’s early bird effect</li>
+<li>two results (Valerdi’s work; repertory grids) commenting on the rate
+at which we can extract considered opinions from humans</li>
+</ul></li>
+<li>In English, describe the following math results and their
+implications for data mining
+<ul>
+<li>chessboard model</li>
+<li>probable correctness theory.</li>
+</ul></li>
+<li>Few-shot learning (FSL):
+<ul>
+<li>describe it (use this as a guide:
+https://www.promptingguide.ai/techniques/fewshot)</li>
+<li>In what sense does FSL mean we can look at fewer examples?</li>
+<li>In what sense does FSL require many, many examples</li>
+</ul></li>
+<li>Describe an active learning cycle. include the words acquisition
+function, exploit, explore, warm/code start</li>
+<li>Acquisition functions. Distinguish and define the following terms.
+ diversity, perversity, (population|surrogate|pool|stream)-based</li>
+<li>What is PCA? (Us this as a guide:
+https://en.wikipedia.org/wiki/Principal_component_analysis)
+<ul>
+<li>How is ezr’s recursive use of “twoFar” an analog of PCA?</li>
+<li>Recursive twoFar generates a tree of clusters. What does ezr’s leaf
+function do? Assuming balances cluster tree are already built, in “big
+O” notation, what is leaf’s runtime?</li>
+<li>The ezr functions half and cluster sort the sort flag. What is the
+impact on #evalautions oil sortp=True</li>
+<li>(HARD): Currently, in 24Aug12, ezr’s half (called from brach)
+requires two evals per depth of tree. Can you reduce that to one (for
+all levels except the top one)</li>
+</ul></li>
+<li>Describe, in Engkish, the k-means algorithm (hint: see “kmeans” in
+https://github.com/timm/noml/blob/main/src/mink.py)
+<ul>
+<li>How is the same/different as recursive twoFar clustering?</li>
+</ul></li>
+<li>What is “discretization?” (hint: see
+https://www.blog.trainindata.com/data-discretization-in-machine-learning/)
+<ul>
+<li>What is gaussian discretization? Hint: unsuper, the “bin” function
+in https://github.com/timm/noml/blob/main/src/unsuper.py</li>
+<li>How should the gaussian discretizer handle symbolic columns
+(hint:trick question).</li>
+<li>How does unsuper divide numeric columns (hint: see COLS’bins
+function and its use of i.bin)</li>
+<li>Why does unsuper need to merge (some) of the bins it generated
+?</li>
+<li>How does unsuper’s merges function combine tow adjacent bins?</li>
+</ul></li>
+</ol>
+
+
+
+
+</div>
+</body>
+</html>
