@@ -9,7 +9,7 @@
 |Sep10  | [Tut2](hw2.html)            |         |
 |Sep19 | [Tut3](hw3.html)            |         |
 |Sep17 | Wellness day    | no class|
-|Sep26 | [Tut4](hw4.html            |         |
+|Sep26 | [Tut4](hw4.html)            |         |
 |Oct1  | Lit review due  |  [About lit Review](litreview.html)       |
 |Oct3  | Tut5            |         |
 |Oct10 | Mid term exam   |         |
