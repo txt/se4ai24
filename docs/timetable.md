@@ -11,7 +11,7 @@
 |Sep17 | Wellness day    | no class|
 <<<<<<< HEAD
 |Sep26 | Tut4            |         |
-|Oct1  | Lit review due  |  [About lit Review](litreview.html)  [stats](stats.html)     |
+|Oct1  | Lit review due  |  [About lit Review](litreview.html); <br>[stats](stats.html)     |
 |Oct3  | Tut5            |         |
 |Oct10 | Mid term exam   |         |
 =======
