@@ -20,6 +20,73 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        background-color: #ffffff;
+        color: #a0a0a0;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+    div.sourceCode
+      { color: #1f1c1b; background-color: #ffffff; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #1f1c1b; } /* Normal */
+    code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+    code span.an { color: #ca60ca; } /* Annotation */
+    code span.at { color: #0057ae; } /* Attribute */
+    code span.bn { color: #b08000; } /* BaseN */
+    code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+    code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #924c9d; } /* Char */
+    code span.cn { color: #aa5500; } /* Constant */
+    code span.co { color: #898887; } /* Comment */
+    code span.cv { color: #0095ff; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #0057ae; } /* DataType */
+    code span.dv { color: #b08000; } /* DecVal */
+    code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+    code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #b08000; } /* Float */
+    code span.fu { color: #644a9b; } /* Function */
+    code span.im { color: #ff5500; } /* Import */
+    code span.in { color: #b08000; } /* Information */
+    code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+    code span.op { color: #1f1c1b; } /* Operator */
+    code span.ot { color: #006e28; } /* Other */
+    code span.pp { color: #006e28; } /* Preprocessor */
+    code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #ff5500; } /* SpecialString */
+    code span.st { color: #bf0303; } /* String */
+    code span.va { color: #0057ae; } /* Variable */
+    code span.vs { color: #bf0303; } /* VerbatimString */
+    code span.wa { color: #bf0303; } /* Warning */
   </style>
   <link rel="stylesheet" href="style.css" />
   
@@ -62,7 +129,7 @@ data. Let us test that.</li>
 independent values</p>
 <p>Run the following twice (once for the low dimensional data sets and
 once for the other). See what conclusions are found.</p>
-<p>Noe that the following is quickly written pseudo code. May have
+<p>Now that the following is quickly written pseudo code. May have
 mistakes. You fix them. Have fun!</p>
 <ul>
 <li>for N in (20,30,40,50)
@@ -103,8 +170,57 @@ have
 <li>return the rows of some, sorted on chebyshev.</li>
 </ul></li>
 </ul>
-<h2 id="experimental-scripts-must-be-commissioned">Experimental Scripts
-Must be “Commissioned”</h2>
+<h2 id="experiments-part1-comission-for-one-data-set">Experiments,
+part1: comission for one data set</h2>
+<p>First you must write an experiment function</p>
+<ul>
+<li>Best not to edit ezr.py</li>
+<li>Better to write an extesions, like in hw1, where you write a
+seperate file that includes my code.</li>
+</ul>
+<p>That experiment file needs to loop through some options and write to
+a list of SOME instances (one per option). Note that one treatment must
+be <code>asIs</code> that runs over the data and collects all the
+distances to heaven. This is the baseline result against which
+everything else will be compared.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> DATA().adds(csv(the.train))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b4 <span class="op">=</span> [d.chebyshev(row) <span class="cf">for</span> row <span class="kw">in</span> d.rows]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>somes <span class="op">=</span> [stats.SOME(b4,<span class="ss">f&quot;asIs,</span><span class="sc">{</span><span class="bu">len</span>(d.rows)<span class="sc">}</span><span class="ss">&quot;</span>)]</span></code></pre></div>
+<p>Then you need to loop through some options to collect some numbers
+into a list. This gets added to <code>SOME</code> with a name that
+identiges the treatment. In the following ,see <code>some +=</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rnd <span class="op">=</span> <span class="kw">lambda</span> z: z</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>scoring_policies <span class="op">=</span> [</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  (<span class="st">&#39;exploit&#39;</span>, <span class="kw">lambda</span> B, R,: B <span class="op">-</span> R),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  (<span class="st">&#39;explore&#39;</span>, <span class="kw">lambda</span> B, R :  (exp(B) <span class="op">+</span> exp(R))<span class="op">/</span> (<span class="fl">1E-30</span> <span class="op">+</span> <span class="bu">abs</span>(exp(B) <span class="op">-</span> exp(R))))]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> what,how <span class="kw">in</span> scoring_policies:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> the.Last <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> the.branch <span class="kw">in</span> [<span class="va">False</span>, <span class="va">True</span>]:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      start <span class="op">=</span> time()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      result <span class="op">=</span> []</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      runs <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(repeats):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         tmp<span class="op">=</span>d.shuffle().activeLearning(score<span class="op">=</span>how)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         runs <span class="op">+=</span> <span class="bu">len</span>(tmp)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>         result <span class="op">+=</span> [rnd(d.chebyshev(tmp[<span class="dv">0</span>]))]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      pre<span class="op">=</span><span class="ss">f&quot;</span><span class="sc">{</span>what<span class="sc">}</span><span class="ss">/b=</span><span class="sc">{</span>the<span class="sc">.</span>branch<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">if</span> the.Last <span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;rrp&quot;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      tag <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>pre<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">int</span>(runs<span class="op">/</span>repeats)<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(tag, <span class="ss">f&quot;: </span><span class="sc">{</span>(time() <span class="op">-</span> start) <span class="op">/</span>repeats<span class="sc">:.2f}</span><span class="ss"> secs&quot;</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      somes <span class="op">+=</span>   [stats.SOME(result,    tag)]</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pre<span class="op">=</span><span class="ss">f&quot;</span><span class="sc">{</span>what<span class="sc">}</span><span class="ss">/b=</span><span class="sc">{</span>the<span class="sc">.</span>branch<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">if</span> the.Last <span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;rrp&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tag <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>pre<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">int</span>(runs<span class="op">/</span>repeats)<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>somes <span class="op">+=</span>   [stats.SOME(result,    tag)]</span></code></pre></div>
+<p>When all the looping is done, you have to print the result:</p>
+<pre><code>stats.report(somes, 0.01)</code></pre>
+<p>(In the above, “0.01” controls the size of the smallest difference we
+can print in the output.)</p>
+<h3 id="experimental-scripts-must-be-commissioned">Experimental Scripts
+Must be “Commissioned”</h3>
 <p>The scripts you write for these experiments are always quirky and
 complex. It is very easy to make mistakes and have to throw out days of
 compute. So test experimental scripts have to be commissioned.</p>
@@ -123,9 +239,67 @@ not?</li>
 statistical validity?</li>
 <li>Does d.shuffle() really jiggle the order of the data?</li>
 </ul>
-<h2 id="how-to-run-a-long-experiment">How to run a long experiment</h2>
-<h2 id="how-to-summarize-a-long-experiments">How to summarize a long
-experiments</h2>
+<h2 id="experiments-part2-run-it-over-many-datasets">Experiments, part2:
+run it over many datasets</h2>
+<p><code>Makefile</code> has a tool for generating a todo file for
+running multiple experiments</p>
+<p>Lets say your experument can be called from the command line
+<code>-e branch</code>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> Act=branch actb4 <span class="co"># this outputs</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .../tmp/branch</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> .../tmp/branch/<span class="pp">*</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> .../ezr.py  <span class="at">-D</span> <span class="at">-t</span> .../Apache_AllMeasurements.csv <span class="at">-e</span> branch <span class="kw">|</span> <span class="fu">tee</span> .../tmp/branch/Apache_AllMeasurements.csv <span class="kw">&amp;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> .../ezr.py  <span class="at">-D</span> <span class="at">-t</span> .../HSMGP_num.csv <span class="at">-e</span> branch              <span class="kw">|</span> <span class="fu">tee</span> .../tmp/branch/HSMGP_num.csv <span class="kw">&amp;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> .../ezr.py  <span class="at">-D</span> <span class="at">-t</span> ../SQL_AllMeasurements.csv <span class="at">-e</span> branch     <span class="kw">|</span> <span class="fu">tee</span> .../tmp/branch/SQL_AllMeasurements.csv <span class="kw">&amp;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code></pre></div>
+<p>You can catch the output of <code>actb4</code> into a
+<code>todo</code> file:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> Act=branch actb4 <span class="op">&gt;</span> ~/tmp/branch.sh</span></code></pre></div>
+<p>See here for a full example <a href="branch.sh">branch.sh</a>.</p>
+<p>You can now run all this to generate lots of output files. See <a
+href="branch.zip">here</a> for a sample.</p>
+<p>All those outputs can be summarizes with the <a
+href="https://github.com/timm/ezr/blob/main/etc/rq.sh">rq.sh</a>
+script:</p>
+<pre><code>cd ~/tmp/branch ; bash ~/gits/timm/ezr/etc/rq.sh 
+
+RANK                0            1            2             3            
+exploi/b=True      92            4            4                         
+explore/b=True     80           16            2             2          
+exploi/b=False     71           24            4                       
+explore/b=False    59           27           10             4        
+rrp                10           16           14            37       
+asIs                2            8           12            12      
+#
+#EVALS
+RANK                      0            1            2             3 
+exploi/b=True      29 (  8)     35 (  0)     20 (  0)       0 (  0)
+explore/b=True     29 (  8)     29 (  0)     20 (  0)      30 (  0)   
+exploi/b=False     28 (  8)     26 (  4)     20 (  0)       0 (  0)  
+explore/b=False    28 (  4)     31 (  8)     30 (  0)      30 (  0) 
+rrp                 4 (  0)      4 (  0)      4 (  0)       5 (  0)
+asIs              3840 (  0)   6581 (  0)   12835 (  0)   16307 (  0)  
+#
+#DELTAS
+RANK                      0            1            2             3   
+exploi/b=True      73 ( 23)     48 (  0)     41 (  0)       0 (  0)  
+explore/b=True     74 ( 21)     61 (  0)     24 (  0)      24 (  0)   
+exploi/b=False     73 ( 26)     59 ( 19)     46 (  0)       0 (  0)  
+explore/b=False    71 ( 22)     58 ( 15)     52 (  0)      54 (  0) 
+rrp                61 (  0)     50 (  0)     22 (  0)      22 ( 11) </code></pre>
+<p>RANKS: how often treatments are in rank 0,1,2,…</p>
+<p>EVALS: is the budgets used to achieve those ranks.</p>
+<p>DELTAS: are the <code>100*(asIs - now)/asIs</code> change.</p>
+<h3 id="if-rq.sh-fails">If rq.sh fails:</h3>
+<ul>
+<li>Your experiment script does not mention an <code>asIs</code>
+output</li>
+<li>When you name your treatments, you add in more than one “,”</li>
+</ul>
 <h2 id="what-to-hand-in">What to hand in</h2>
 <p>Submit a url link to moodle with a repo link that has a /hw3
 subdirectory</p>
