@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Stats</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+<div class=wrapper>
+<p>
+csc 591-024, (8290)<br>
+csc 791-024, (8291)<br>
+fall 2024, special topics in computer science<br>
+Tim Menzies, timm@ieee.org, com sci, nc state
+<hr>
+<a href="index.html">home</a>
+:: <a href="timetable.html">timetable</a>
+:: <a href="syllabus.html">syllabus</a>
+:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?usp=sharing">groups</a>
+:: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
+:: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
+<img src="img/brain.png" align=left width=280
+style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10px 10px #222); filter: drop-shadow(-10px 10px 10px #222); ">
+
+
+<header id="title-block-header">
+<h1 class="title">Stats</h1>
+</header>
+<p><br clear=all></p>
+<ol type="1">
+<li><p><strong>Problem of Comparing Samples</strong> What are the two
+main parts of the problem when comparing samples, and how do
+significance tests and effect size tests help address these
+parts?</p></li>
+<li><p><strong>Statistical Significance vs. Effect Size</strong> How can
+two samples be statistically significant but have only a small effect
+size? Why is this distinction important in practice?</p></li>
+<li><p><strong>Real-World SE Example: Distributed Development</strong>
+Compare the findings of Bird et al. (2009) and Kocaguneli et al. (2013)
+regarding the impact of distributed development on software quality.
+What did each study conclude?</p></li>
+<li><p><strong>Curve Overlap and Standard Deviation</strong> What
+happens to the interpretability of sample differences when the standard
+deviations of the distributions increase, causing overlap?</p></li>
+<li><p><strong>Assumptions in Parametric Statistical Tests</strong> Why
+are parametric statistical tests used in some scenarios, and what
+assumptions about the data distribution are required for these tests to
+be valid?</p></li>
+<li><p><strong>Challenges of Parametric Tests</strong> What are some
+limitations of using parametric statistical tests, especially when
+dealing with real-world data that might not fit a simple
+distribution?</p></li>
+<li><p><strong>Scott-Knott Method for Grouping Means</strong> How does
+the Scott-Knott method work to cluster means in a set of samples, and
+what is the connect beteen Scott-Knott and (e.g.) effect size
+tests.</p></li>
+<li><p><strong>Cohen’s Delta and Small Effect Size</strong> What role
+does Cohen’s delta play in determining whether one distribution is
+considered similar to another? What threshold value is used in the
+lecture, and what does it represent?</p></li>
+<li><p><strong>Differences Between Parametric and Non-Parametric
+Tests</strong> How do non-parametric tests like CliffsDelta and
+bootstrap differ from parametric tests, and why might they be preferred
+in some cases?</p></li>
+<li><p><strong>Blurring in Results Interpretation</strong> What is
+“blurring” when interpreting the results of statistical comparisons, and
+why is it significant when analyzing treatments with large
+variance?</p></li>
+<li><p><strong>Runtime and Storage Considerations in Statistics</strong>
+Why are non-parametric tests generally slower and more memory-intensive
+than parametric tests? When might it be appropriate to use quick
+approximations instead?</p></li>
+</ol>
+
+
+
+
+</div>
+</body>
+</html>
