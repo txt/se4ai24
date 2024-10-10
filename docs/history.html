@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The Evolution of Optimization Algorithms: A Story of Memory, CPU, and Ambition</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+<div class=wrapper>
+<p>
+csc 591-024, (8290)<br>
+csc 791-024, (8291)<br>
+fall 2024, special topics in computer science<br>
+Tim Menzies, timm@ieee.org, com sci, nc state
+<hr>
+<a href="index.html">home</a>
+:: <a href="timetable.html">timetable</a>
+:: <a href="syllabus.html">syllabus</a>
+:: <a href="https://docs.google.com/spreadsheets/d/17m4BWszQvmI3fINgs-C-zyAfavOta7K9qFol5yhmw8w/edit?usp=sharing">groups</a>
+:: <a href="https://moodle-courses2425.wolfware.ncsu.edu/course/view.php?id=4181&bp=s">moodle</a>
+:: <a href="https://github.com/txt/se4ai24/blob/main/LICENSE">license</a>  </p>
+<img src="img/brain.png" align=left width=280
+style="padding: 10px; padding-right: 15px; -webkit-filter: drop-shadow(-10px 10px 10px #222); filter: drop-shadow(-10px 10px 10px #222); ">
+
+
+<header id="title-block-header">
+<h1 class="title">The Evolution of Optimization Algorithms: A Story of
+Memory, CPU, and Ambition</h1>
+</header>
+<p><br clear=all></p>
+<h2
+id="walking-through-optimization-landscapes-ridges-minima-and-maxima"><strong>Walking
+Through Optimization Landscapes: Ridges, Minima, and
+Maxima</strong></h2>
+<h3
+id="the-rabbits-of-the-1930s-the-first-optimization-landscape"><strong>The
+Rabbits of the 1930s: The First Optimization Landscape</strong></h3>
+<p><img width="600" src="img/fit.png"></p>
+<p>In the 1930s, the famous geneticist <strong>Sewall Wright</strong>
+introduced a metaphor that would shape our understanding of complex
+optimization problems. Wright described a population of
+<strong>rabbits</strong> living on a mountainous landscape. In this
+metaphor, the fitness of each rabbit is determined by its position on
+the landscape—the higher up a hill the rabbit is, the fitter it is.
+These hills represent <strong>peaks in fitness</strong>, while the
+valleys represent <strong>low fitness</strong>.</p>
+<p>This landscape wasn’t smooth, though. It was rugged, filled with
+<strong>ridges</strong>, <strong>local maxima</strong>, and
+<strong>local minima</strong>—representing the difficult nature of
+real-world optimization problems. Wright’s “<strong>fitness
+landscape</strong>” was the first formal description of an
+<strong>optimization landscape</strong>, and it introduced a powerful
+way of visualizing how algorithms navigate complex spaces to find
+solutions.</p>
+<p>Fast forward to today, optimization algorithms are those “rabbits”
+traversing this landscape in search of the highest peak (the global
+maximum) or lowest valley (the global minimum).</p>
+<h3 id="understanding-the-optimization-landscape"><strong>Understanding
+the Optimization Landscape</strong></h3>
+<p>In optimization, the landscape can be thought of as a surface where
+each point represents a possible solution, and the height (or depth)
+represents the value of the objective function you’re optimizing—either
+trying to minimize or maximize.</p>
+<h4 id="key-features-of-the-landscape"><strong>Key Features of the
+Landscape:</strong></h4>
+<ol type="1">
+<li><strong>Ridges:</strong>
+<ul>
+<li><strong>Ridges</strong> are like high mountain crests between peaks.
+In an optimization landscape, they are regions where moving in one
+direction improves the solution, but moving perpendicular to that
+direction yields little change.</li>
+<li>Traversing ridges can be particularly tricky because it requires
+moving in a direction that leads to better solutions without being
+tempted by flat or shallow areas on either side.</li>
+</ul></li>
+<li><strong>Local Minima:</strong>
+<ul>
+<li>A <strong>local minimum</strong> is a point in the landscape where
+all neighboring points are higher (in terms of value for a minimization
+problem), but it is not necessarily the <strong>global
+minimum</strong>.</li>
+<li>Local minima are common obstacles in optimization. Many algorithms,
+such as <strong>Simulated Annealing</strong>, must be designed to escape
+these traps to avoid getting stuck.</li>
+</ul></li>
+<li><strong>Local Maxima:</strong>
+<ul>
+<li>Similarly, a <strong>local maximum</strong> is a peak where all
+neighboring points are lower, but it is not the <strong>global
+maximum</strong>. Local maxima can trick algorithms into thinking
+they’ve found the best solution when there may be higher peaks
+elsewhere.</li>
+</ul></li>
+<li><strong>Flat Regions:</strong>
+<ul>
+<li>Flat regions or <strong>plateaus</strong> occur when there are large
+areas where the objective function does not change much. These regions
+make it hard for algorithms to discern which direction leads to
+improvement.</li>
+</ul></li>
+</ol>
+<hr />
+<h3
+id="navigating-the-landscape-challenges-and-solutions"><strong>Navigating
+the Landscape: Challenges and Solutions</strong></h3>
+<ol type="1">
+<li><p><strong>The Problem of Local Minima and Maxima:</strong>
+Algorithms often find themselves stuck in <strong>local minima</strong>
+or <strong>maxima</strong>—a situation where no nearby solutions seem
+better, but better solutions exist elsewhere. For example, a rabbit may
+reach a small hill, think it’s on the highest peak, and stop
+searching—missing a nearby taller mountain.</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><strong>Simulated Annealing (SA)</strong> is designed to avoid this
+trap by occasionally accepting worse solutions during early iterations,
+allowing the search to escape local minima. Over time, as the
+“temperature” cools, it becomes more selective in choosing better
+solutions.</li>
+</ul>
+<pre class="pseudo"><code>initialize solution S
+initialize temperature T
+repeat
+    new_solution = perturb(S)
+    if (new_solution is better than S) or (accept_worse_solution_probabilistically(T)):
+        S = new_solution
+    T = decrease_temperature(T)
+until stopping_condition
+return S</code></pre></li>
+<li><p><strong>Following the Ridges:</strong> Navigating ridges is one
+of the most delicate tasks in optimization. Solutions along ridges are
+tempting because small movements in one direction improve the objective,
+but large movements perpendicular to the ridge can cause the algorithm
+to miss the ridge entirely.</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><strong>Evolutionary Algorithms (EA)</strong> or <strong>Genetic
+Algorithms (GA)</strong> are good at exploring multiple directions in
+parallel. They use populations of solutions, allowing them to spread out
+across different areas of the landscape, which improves the chances of
+finding and following a ridge.</li>
+</ul>
+<pre class="pseudo"><code>initialize population P of size N
+repeat
+    select parents from P
+    create new_population by crossover and mutation of parents
+    select survivors to form new P
+until stopping_condition
+return best_solution_in(P)</code></pre></li>
+<li><p><strong>Escaping Plateaus:</strong> Plateaus, or flat regions,
+present another unique challenge. With no clear indication of which
+direction is better, algorithms can waste time wandering without making
+progress.</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><strong>MaxWalkSAT</strong> solves this by combining greedy local
+improvements with random moves. It exploits what it can locally but
+occasionally shakes things up by making random changes to escape from
+flat regions.</li>
+</ul>
+<pre class="pseudo"><code>initialize solution S
+repeat
+    for small_number_of_steps:
+        improve S locally by flipping a variable
+    with probability p:
+        randomly modify S
+until stopping_condition
+return best_solution_found</code></pre></li>
+<li><p><strong>Climbing to Higher Peaks:</strong> <strong>Differential
+Evolution (DE)</strong> and <strong>NSGA-II</strong> come into play when
+you want to combine information from different parts of the landscape.
+<strong>DE</strong> uses differences between members of the population
+to create new solutions that are likely to move toward better regions of
+the landscape.</p>
+<p><strong>NSGA-II</strong> excels at managing multiple objectives. It
+finds solutions that balance trade-offs between conflicting objectives,
+ensuring a diverse set of solutions along the <strong>Pareto
+front</strong> (a kind of multi-dimensional ridge).</p>
+<pre class="pseudo"><code>initialize population P of size N
+evaluate P
+repeat
+    generate offspring population Q using crossover and mutation
+    evaluate Q
+    combine P and Q into R
+    non-dominated_sort(R)
+    calculate crowding distance for each individual in R
+    select the N best individuals based on rank and crowding distance to form new P
+until stopping_condition
+return Pareto_front(P)</code></pre></li>
+<li><p><strong>Using Surrogates for Complex Landscapes:</strong> When
+the landscape becomes too complex, and evaluating every point is costly,
+<strong>Sequential Model Optimization (SMO)</strong> or <strong>Bayesian
+Optimization (BO)</strong> uses <strong>surrogate
+models</strong>—simpler approximations of the landscape. These models
+predict which regions of the landscape are worth exploring, reducing the
+number of evaluations needed.</p>
+<pre class="pseudo"><code>initialize surrogate model M
+initialize sample points S
+repeat
+    find promising point using M (e.g., based on expected improvement)
+    evaluate real function at promising point
+    update M with new point
+until stopping_condition
+return best_solution</code></pre></li>
+</ol>
+<h3 id="the-landscape-of-possibilities"><strong>The Landscape of
+Possibilities</strong></h3>
+<p>The <strong>optimization landscape</strong> is full of
+challenges—ridges, local minima, local maxima, and plateaus. Algorithms
+have been developed to navigate these landscapes in different ways, from
+simple probabilistic methods like <strong>Simulated Annealing</strong>
+to more advanced techniques like <strong>Differential Evolution</strong>
+and <strong>Sequential Model Optimization</strong>.</p>
+<p>Just like Wright’s rabbits, algorithms wander this rugged landscape
+in search of the best solution, and it is our task to help them find the
+highest peaks or the deepest valleys efficiently.</p>
+<h2 id="exploring-the-landscape">Exploring the Landscape</h2>
+<p>Once upon a time, <strong>memory</strong> and <strong>CPU
+power</strong> were precious commodities, and optimization algorithms
+had to be simple and resource-efficient.</p>
+<h3 id="phase-1-simulated-annealing-sa-the-era-of-11-algorithms">Phase
+1: Simulated Annealing (SA) – The Era of 1+1 Algorithms</h3>
+<p>In the earliest days, when <strong>memory was scarce</strong> and
+<strong>CPU time was expensive</strong>, optimization had to be as
+lightweight as possible. Enter <strong>Simulated Annealing
+(SA)</strong>—a <strong>1+1 algorithm</strong>. SA’s origins can be
+traced back to the <strong>Metropolis algorithm</strong> from 1953,
+which was originally designed to simulate the behavior of particles in
+thermodynamic systems.</p>
+<p>It wasn’t until the early 1980s, when <strong>Scott
+Kirkpatrick</strong>, <strong>C. D. Gelatt</strong>, and <strong>M. P.
+Vecchi</strong> pointed out that the <strong>Metropolis
+algorithm</strong> could be used as an optimizer, that the idea evolved
+into <strong>Simulated Annealing (SA)</strong>. The concept was simple
+yet powerful: start with a solution, perturb it, and decide
+probabilistically whether to accept the new solution based on a
+“temperature” parameter, gradually cooling down over time to focus on
+local exploration.</p>
+<pre class="pseudo"><code>initialize solution S
+initialize temperature T
+repeat
+    new_solution = perturb(S)
+    if (new_solution is better than S) or (accept_worse_solution_probabilistically(T)):
+        S = new_solution
+    T = decrease_temperature(T)
+until stopping_condition
+return S</code></pre>
+<p><strong>SA</strong> is efficient—using just one solution at a
+time—but it explores the space slowly, like a lone traveler wandering
+through a complex landscape. <strong><a
+href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm">Ref:
+Metropolis Algorithm, 1953</a></strong> <strong><a
+href="https://en.wikipedia.org/wiki/Simulated_annealing">Ref: Simulated
+Annealing, 1983</a></strong></p>
+<hr />
+<p>i### Phase 2: Genetic Algorithms (GA) – Enter the N+N Era</p>
+<p>As <strong>memory got cheaper</strong>, we could afford to hold
+populations of solutions. Thus, <strong>Genetic Algorithms (GA)</strong>
+became popular. Instead of a single solution, GA maintained a
+<strong>population (N solutions)</strong> that evolved through
+selection, crossover, and mutation—mimicking the process of natural
+evolution. This allowed GA to explore the solution space more
+broadly.</p>
+<pre class="pseudo"><code>initialize population P of size N
+repeat
+    select parents from P
+    create new_population by crossover and mutation of parents
+    select survivors to form new P
+until stopping_condition
+return best_solution_in(P)</code></pre>
+<p>GA’s strength lay in diversity. Multiple solutions (N+N) evolved
+simultaneously, allowing it to explore many regions of the search space
+at once. But this required more memory. <strong><a
+href="https://en.wikipedia.org/wiki/Genetic_algorithm">Ref: John
+Holland, 1975</a></strong></p>
+<hr />
+<p>##i# Phase 3: MaxWalkSAT (MWS) – 1+smallN, Many Times</p>
+<p>Then, as <strong>CPU time became cheaper</strong>, we could afford to
+run many small explorations. <strong>MaxWalkSAT (MWS)</strong>, a hybrid
+algorithm, arose to solve satisfiability problems. In this approach, you
+explored solutions by greedily walking toward better solutions, but you
+could also take random steps to avoid getting stuck in local optima.</p>
+<p>Instead of using a full population, <strong>MaxWalkSAT</strong>
+balances between exploiting local improvement (1+smallN) and allowing
+some randomness.</p>
+<pre class="pseudo"><code>initialize solution S
+repeat
+    for small_number_of_steps:
+        improve S locally by flipping a variable
+    with probability p:
+        randomly modify S
+until stopping_condition
+return best_solution_found</code></pre>
+<p>This algorithm capitalized on faster CPUs by running these walks many
+times, combining fast local search with occasional randomness.
+<strong><a href="https://en.wikipedia.org/wiki/WalkSAT">Ref: MaxWalkSAT,
+1996</a></strong></p>
+<hr />
+<h3
+id="phase-4-differential-evolution-de-and-nsga-ii-the-smart-era">Phase
+4: Differential Evolution (DE) and NSGA-II – The Smart Era</h3>
+<p>With the rise of smarter algorithms, <strong>Differential Evolution
+(DE)</strong> emerged. DE works by creating new solutions through a
+process of “differential mutation,” where the difference between two
+population members is added to a third. This clever mechanism balances
+exploration and exploitation while maintaining computational
+efficiency.</p>
+<pre class="pseudo"><code>initialize population P of size N
+repeat
+    for each individual in P:
+        select three distinct random individuals
+        generate trial vector by combining them
+        if trial vector is better than the current individual:
+            replace current individual with trial vector
+until stopping_condition
+return best_solution_in(P)</code></pre>
+<p>Meanwhile, in the world of multi-objective optimization,
+<strong>NSGA-II</strong> became a gold standard for solving
+multi-objective problems (now we might call it the <strong>old</strong>
+standard). NSGA-II introduced a clever approach that combined
+<strong>non-dominated sorting</strong> with <strong>crowding
+distance</strong> to preserve solution diversity along the Pareto
+front.</p>
+<h4 id="pseudo-code-for-nsga-ii">Pseudo-code for
+<strong>NSGA-II</strong>:</h4>
+<pre class="pseudo"><code>initialize population P of size N
+evaluate P
+repeat
+    generate offspring population Q using crossover and mutation
+    evaluate Q
+    combine P and Q into R
+    non-dominated_sort(R)
+    calculate crowding distance for each individual in R
+    select the N best individuals based on rank and crowding distance to form new P
+until stopping_condition
+return Pareto_front(P)</code></pre>
+<p><strong>NSGA-II</strong> ensures that solutions are both spread out
+along the Pareto front and converge toward the optimal trade-offs,
+handling multiple objectives efficiently. <strong><a
+href="https://en.wikipedia.org/wiki/NSGA-II">Ref: NSGA-II,
+2002</a></strong></p>
+<h3 id="phase-5-moead-decomposing-the-problem">Phase 5: MOEA/D –
+Decomposing the Problem</h3>
+<p><strong>MOEA/D</strong> (Multi-Objective Evolutionary Algorithm based
+on Decomposition) took a more structured approach. Instead of solving
+multi-objective problems as one large problem, MOEA/D decomposed the
+problem into simpler subproblems that were easier to solve
+individually.</p>
+<pre class="pseudo"><code>initialize population P with subproblem solutions
+for each subproblem:
+    update solutions based on neighbor subproblems
+    generate new solutions using crossover and mutation
+until stopping_condition
+return Pareto_front(P)</code></pre>
+<p>MOEA/D exemplified the era where <strong>ambition</strong> grew, and
+the complexity of problems escalated. We had multiple objectives, and we
+got more creative in solving them. <strong><a
+href="https://ieeexplore.ieee.org/document/4358754">Ref: MOEA/D,
+2007</a></strong></p>
+<hr />
+<h3 id="phase-6-smo-and-surrogates-the-age-of-surrogates">Phase 6: SMO
+and Surrogates – The Age of Surrogates</h3>
+<p>With success came <strong>ambition</strong>. Problems became more
+complex and expensive to evaluate. Optimizing expensive functions (like
+simulations or experiments) needed <strong>surrogate
+models</strong>—models that approximate the expensive function to save
+computational resources.</p>
+<p>Enter <strong>SMO (Sequential Model Optimization)</strong> and
+<strong>Bayesian Optimization (BO)</strong>. These methods build
+surrogate models (often using Gaussian processes or other regression
+models) to guide optimization, selecting points where the model’s
+uncertainty is high.</p>
+<pre class="pseudo"><code>initialize surrogate model M
+initialize sample points S
+repeat
+    find promising point using M (e.g., based on expected improvement)
+    evaluate real function at promising point
+    update M with new point
+until stopping_condition
+return best_solution</code></pre>
+<p>In this age, we became strategic. Instead of evaluating every
+possible solution, we used the surrogate model to predict where the best
+solutions might lie. This gave us the power to tackle much more
+<strong>complex problems</strong> without exhausting computational
+resources. <strong><a
+href="https://en.wikipedia.org/wiki/Bayesian_optimization">Ref: SMO/BO,
+2010s</a></strong></p>
+<hr />
+<h3
+id="conclusion-different-capabilities-different-algorithms"><strong>Conclusion:
+Different Capabilities, different Algorithms</strong></h3>
+<p>The history of optimization is one of <strong>resource
+adaptation</strong>: as memory became cheaper, we expanded to
+population-based algorithms like <strong>GA</strong>; as CPU power
+increased, we could afford to run more sophisticated algorithms like
+<strong>MaxWalkSAT</strong>. Finally, as our ambitions grew, we began
+using <strong>smarter algorithms</strong> like <strong>DE</strong>,
+<strong>NSGA-II</strong>, and <strong>MOEA/D</strong>, and ultimately,
+when faced with even more complex problems, we turned to
+<strong>surrogates</strong> like <strong>SMO</strong> to guide us
+efficiently through difficult landscapes.</p>
+<p>Care to guess what is next?</p>
+
+
+
+
+</div>
+</body>
+</html>

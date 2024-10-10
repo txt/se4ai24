@@ -12,7 +12,7 @@
 |Sep26 | [Tut3](hw3.html)            |         |
 |Oct1  | Lit review due  |  [About lit Review](litreview.html)   <br>[stats](stats.html)    |
 |Oct3  | [Tut4](hw4.html)            |         |
-|Oct10 | [Tut5](hw5.html)    |         |
+|Oct10 | [Tut5](hw5.html)    |    [history](history.html)     |
 |Oct15 | Fall break      | no class|
 |Oct17 | Mid term exam | no class|
 |Oct31 | Paper1 due      |         |
