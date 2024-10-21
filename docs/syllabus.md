@@ -74,7 +74,7 @@ This  policy is absolute and total (i.e. there no, zero, zip, nada, none, appeal
 |mid-term        |solo        | 25     | mid-term   | yes           | replaced if you do final exam |
 |report0: motivation, related work, methods | lit review      |group       | 25     | end-Sept   | yes           | optionally, replaced in the final reports |
 |report1: results |group    | 25     | end-Oct. submit to get feedback on your work, so you can improve the  report2  | yes | optionally, replaced by the final paper|
-|report2: report1 (improved)  |group       | 25     | end-Nov    | no            | when you submit, students must must specify if this is to be marked out of 25 of 75 |
+|report2: report1 (improved)  |group       | 25     | end-Nov    | no            | when you submit, students must must specify if this is to be marked out of 25 or 50 |
 |final exam      |solo        | 30     |            | no            | if students take this exam, then it replaces the homework and mid-term grade |            
 
 With the final grades, the following grade scale will be used: 
